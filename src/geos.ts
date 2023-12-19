@@ -1,4 +1,4 @@
-import { booleanPointInPolygon, point } from "@turf/turf";
+import { point, booleanPointInPolygon } from "@turf/turf";
 
 import { msaFeatureCollection } from "./msas";
 

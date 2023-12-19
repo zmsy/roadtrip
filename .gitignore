@@ -128,3 +128,5 @@ dist
 
 # roadtrip cache of restaurant json
 .roadtrip_cache
+
+*.js
