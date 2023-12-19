@@ -125,3 +125,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# roadtrip cache of restaurant json
+.roadtrip_cache
