@@ -130,3 +130,4 @@ dist
 .roadtrip_cache
 
 *.js
+*.js.map
