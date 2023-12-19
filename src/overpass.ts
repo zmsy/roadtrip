@@ -8,7 +8,7 @@ const OVERPASS_URL = `https://overpass.kumi.systems/api/interpreter`;
  * This is the individual node you'd find in Overpass. The list of tags is where
  * most of the actual information is kept.
  */
-type OverpassNode = {
+export type OverpassNode = {
   type: "node";
   id: number;
   lat: number;
@@ -23,7 +23,7 @@ type OverpassNode = {
   };
 };
 
-type OverpassResponse = {
+export type OverpassResponse = {
   version: string;
   generator: string;
   osm3s: {
@@ -51,11 +51,13 @@ const getQuery = (filter: string): string => `
   out;
 `;
 
-const getOverpassNodes = async (
+export const getOverpassNodes = async (
   filter: string
 ): Promise<OverpassResponse | undefined> => {
+  console.log();
   const result = await fetch(OVERPASS_URL, {
     body: getQuery(filter),
+    method: "POST",
   });
   const json = await result.json();
   return json ?? undefined;

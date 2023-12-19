@@ -14,7 +14,7 @@ type Restaurant = {
  */
 export const restaurantsList: Array<Restaurant> = [
   {
-    name: "Applebee's Neighborhood Bar & Grill",
+    name: "Applebee's",
     filter: `"name"~"^Applebee's"`,
   },
   {
