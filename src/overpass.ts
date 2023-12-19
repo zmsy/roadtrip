@@ -2,7 +2,7 @@
  * One of the public overpass instances:
  * https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances
  */
-const OVERPASS_URL = `https://overpass.kumi.systems/api/interpreter`;
+const OVERPASS_URL = `https://overpass-api.de/api/interpreter`;
 
 /**
  * This is the individual node you'd find in Overpass. The list of tags is where
