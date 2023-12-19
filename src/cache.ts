@@ -19,7 +19,7 @@ const getCacheFilePath = (slug: string) =>
  */
 export const getCachedJson = async (
   slug: string,
-  invalidate = true
+  invalidate = false
 ): Promise<OverpassResponse | undefined> => {
   // this is just a forcing function to return nothing if we're invalidating the
   // cache instead of using it.
@@ -29,7 +29,7 @@ export const getCachedJson = async (
 
   const fileName = getCacheFilePath(slug);
   try {
-    fs.access(fileName);
+    await fs.access(fileName);
     const data = await fs.readFile(fileName);
     return JSON.parse(data.toString()) as OverpassResponse;
   } catch (err: unknown) {

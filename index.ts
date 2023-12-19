@@ -4,11 +4,18 @@ import { getCachedJson, writeCacheJson } from "./src/cache";
 import { getOverpassNodes } from "./src/overpass";
 
 /**
- * Main function for running the script.
+ * Retrieve all overpass nodes for the restaurants that don't have an existing
+ * cached entry.
  */
-const main = async () => {
+const getAllOverpassNodes = async () => {
   for (const restaurant of restaurantsList) {
     const { name, filter } = restaurant;
+
+    // ignore ones that i've not added filters for.
+    if (filter.length === 0) {
+      continue;
+    }
+
     const slug = slugify(name);
     const cached = await getCachedJson(slug);
     if (!cached) {
@@ -22,5 +29,5 @@ const main = async () => {
 };
 
 (async () => {
-  main();
+  getAllOverpassNodes();
 })();
