@@ -1,4 +1,5 @@
 import * as assert from "assert";
+import { inspect } from "util";
 
 /**
  * One of the public overpass instances:
@@ -57,15 +58,19 @@ export const getOverpassNodes = async (
   filter: string
 ): Promise<OverpassResponse | undefined> => {
   let json: OverpassResponse | undefined;
+  const body = getQuery(filter);
   try {
     const result = await fetch(OVERPASS_URL, {
-      body: getQuery(filter),
+      body,
       method: "POST",
     });
+    if (result.statusText === "Bad Request") {
+      throw new Error(`Bad request for filter: ${filter}`);
+    }
     json = await result.json();
   } catch (err: unknown) {
     assert.ok(err instanceof Error);
-    console.log(`Fetch error: ${err.name}: ${err.message}`);
+    console.error(`Fetch error: ${inspect({ err, body }, false, null)}`);
   }
   return json;
 };

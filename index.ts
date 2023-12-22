@@ -36,8 +36,11 @@ const getRoutes = async () => {
 
     // this is just a placeholder for now
     const cached = await getCachedJson(slug);
-    const url = formatOverpassNodesasURL(cached?.elements);
-    console.log(url);
+    if (!cached) {
+      continue;
+    }
+    const url = formatOverpassNodesasURL(cached.elements);
+    console.log(`${name} => ${url}`);
   }
 };
 
