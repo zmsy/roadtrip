@@ -1,3 +1,5 @@
+import * as assert from "assert";
+
 /**
  * One of the public overpass instances:
  * https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances
@@ -54,11 +56,16 @@ const getQuery = (filter: string): string => `
 export const getOverpassNodes = async (
   filter: string
 ): Promise<OverpassResponse | undefined> => {
-  console.log();
-  const result = await fetch(OVERPASS_URL, {
-    body: getQuery(filter),
-    method: "POST",
-  });
-  const json = await result.json();
-  return json ?? undefined;
+  let json: OverpassResponse | undefined;
+  try {
+    const result = await fetch(OVERPASS_URL, {
+      body: getQuery(filter),
+      method: "POST",
+    });
+    json = await result.json();
+  } catch (err: unknown) {
+    assert.ok(err instanceof Error);
+    console.log(`Fetch error: ${err.name}: ${err.message}`);
+  }
+  return json;
 };
