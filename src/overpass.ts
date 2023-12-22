@@ -47,7 +47,7 @@ const getQuery = (filter: string): string => `
   (
     area["name"="United States"]->.searchArea;
     area["name"="Canada"]->.searchArea;
-    area["name"="Mexico"]->.searchArea;
+    area["name"="México"]->.searchArea;
   )->.searchArea;
 
   node[${filter}](area.searchArea);
