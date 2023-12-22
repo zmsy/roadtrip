@@ -2,6 +2,7 @@ import { restaurantsList } from "./src/restaurants";
 import { slugify } from "./src/util";
 import { getCachedJson, writeCacheJson } from "./src/cache";
 import { getOverpassNodes } from "./src/overpass";
+import { formatOverpassNodesasURL } from "./src/osrm";
 
 /**
  * Retrieve all overpass nodes for the restaurants that don't have an existing
@@ -28,6 +29,19 @@ const getAllOverpassNodes = async () => {
   }
 };
 
+const getRoutes = async () => {
+  for (const restaurant of restaurantsList) {
+    const { name } = restaurant;
+    const slug = slugify(name);
+
+    // this is just a placeholder for now
+    const cached = await getCachedJson(slug);
+    const url = formatOverpassNodesasURL(cached?.elements);
+    console.log(url);
+  }
+};
+
 (async () => {
   getAllOverpassNodes();
+  getRoutes();
 })();

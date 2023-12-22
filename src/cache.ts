@@ -32,9 +32,7 @@ export const getCachedJson = async (
     await fs.access(fileName);
     const data = await fs.readFile(fileName);
     return JSON.parse(data.toString()) as OverpassResponse;
-  } catch (err: unknown) {
-    console.log(err);
-  }
+  } catch (err: unknown) {}
 
   return undefined;
 };
