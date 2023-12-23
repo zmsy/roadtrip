@@ -34,6 +34,17 @@ type Restaurant = {
  */
 export const restaurantsList: Array<Restaurant> = [
   {
+    filter: `"name"="Fultano's Pizza"`,
+    name: "Fultano's Pizza",
+    originalLocation: "Warrenton, OR",
+    founded: 1984,
+    headquarters: "Warrenton, OR",
+    parentCompany: null,
+    numUSLocations: 6,
+    areasServed: "Oregon",
+    notes: "They control the air, and the sea.",
+  },
+  {
     filter: `"brand"="Bonchon Chicken"`,
     name: "BonChon Chicken",
     originalLocation: "Busan, South Korea",
@@ -1488,7 +1499,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1143589"`,
     name: "Culver's",
     originalLocation: "Sauk City, Wisconsin",
     founded: "1984",
@@ -1499,7 +1510,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5435711"`,
     name: "Farmer Boys",
     originalLocation: "Perris, California",
     founded: "1981",
@@ -1510,7 +1521,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1397976"`,
     name: "Fatburger",
     originalLocation: "Los Angeles, California",
     founded: "1947",
@@ -1521,7 +1532,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1131810"`,
     name: "Five Guys",
     originalLocation: "Arlington County, Virginia",
     founded: "1986",
@@ -1532,7 +1543,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5496837"`,
     name: "Freddy's Frozen Custard & Steakburgers",
     originalLocation: "Wichita, Kansas",
     founded: "2002",
@@ -1587,7 +1598,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Hwy 55 Burgers Shakes & Fries",
     originalLocation: "Goldsboro, North Carolina",
     founded: "1991",
@@ -1620,7 +1631,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6110826"`,
     name: "Jack's",
     originalLocation: "Homewood, Alabama",
     founded: "1960",
@@ -1642,7 +1653,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q38076"`,
     name: "McDonald's",
     originalLocation: "San Bernardino, California",
     founded: "1940",
@@ -1653,7 +1664,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Milo's Hamburgers",
     originalLocation: "Birmingham, Alabama",
     founded: "1946",
@@ -1675,7 +1686,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Original Tommy's",
     originalLocation: "Los Angeles, California",
     founded: "1946",
@@ -1686,7 +1697,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Penguin Point",
     originalLocation: "Wabash, Indiana",
     founded: "1950",
@@ -1730,7 +1741,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7561808"`,
     name: "Sonic Drive-In",
     originalLocation: "Shawnee, Oklahoma",
     founded: "1953",
@@ -1763,7 +1774,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Swensons",
     originalLocation: "Akron, Ohio",
     founded: "1934",
@@ -1785,7 +1796,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Ward's",
     originalLocation: "Hattiesburg, Mississippi",
     founded: "1978",
@@ -1862,7 +1873,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "James Coney Island",
     originalLocation: "Houston, Texas",
     founded: 1923,
@@ -1895,7 +1906,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Sneaky Pete's",
     originalLocation: "Birmingham, Alabama",
     founded: 1966,
@@ -1917,7 +1928,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q85751038"`,
     name: "Cava",
     originalLocation: "Rockville, Maryland",
     founded: 2011,
@@ -1928,7 +1939,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Daphne's Greek Cafe",
     originalLocation: "California",
     founded: 1991,
@@ -1961,7 +1972,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q19849840"`,
     name: "Taziki's Mediterranean Cafe",
     originalLocation: "Birmingham, Alabama",
     founded: 1998,
@@ -1972,7 +1983,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Zankou Chicken",
     originalLocation: "Beirut, Lebanon",
     founded: 1962,
@@ -1983,7 +1994,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q2880019"`,
     name: "Baja Fresh",
     originalLocation: "Scottsdale, Arizona",
     founded: 1990,
@@ -1994,7 +2005,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5017108"`,
     name: "Cafe Rio",
     originalLocation: "St. George, Utah",
     founded: 1997,
@@ -2005,7 +2016,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "California Tortilla",
     originalLocation: "Bethesda, Maryland",
     founded: 1995,
@@ -2038,7 +2049,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "El Taco Tote",
     originalLocation: "Ciudad Juárez, Chihuahua, Mexico",
     founded: 1988,
@@ -2049,7 +2060,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q85762348"`,
     name: "Fuzzy's Taco Shop",
     originalLocation: "Fort Worth, Texas",
     founded: 2001,
@@ -2060,7 +2071,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Green/Red Burrito",
     originalLocation: "Hawaiian Gardens, California",
     founded: 1980,
@@ -2071,7 +2082,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "La Salsa",
     originalLocation: "Los Angeles, California",
     founded: 1979,
@@ -2082,7 +2093,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6844210"`,
     name: "Mighty Taco",
     originalLocation: "Buffalo, New York",
     founded: 1973,
@@ -2093,7 +2104,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6889938"`,
     name: "Moe's Southwest Grill",
     originalLocation: "Atlanta, Georgia",
     founded: 2000,
@@ -2104,7 +2115,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1363885"`,
     name: "Qdoba",
     originalLocation: "Denver, Colorado",
     founded: 1995,
@@ -2115,7 +2126,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7376154"`,
     name: "Rubio's Coastal Grill",
     originalLocation: "San Diego, California",
     founded: 1983,
@@ -2126,7 +2137,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Salsarita's Fresh Mexican Grill",
     originalLocation: "Charlotte, North Carolina",
     founded: 2000,
@@ -2137,7 +2148,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q752941"`,
     name: "Taco Bell",
     originalLocation: "Downey, California",
     founded: 1962,
@@ -2148,7 +2159,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7673958"`,
     name: "Taco Bueno",
     originalLocation: "Abilene, Texas",
     founded: 1967,
@@ -2159,7 +2170,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q12070488"`,
     name: "Taco Cabana",
     originalLocation: "San Antonio, Texas",
     founded: 1978,
@@ -2170,7 +2181,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Taco Casa",
     originalLocation: "Fort Worth, Texas",
     founded: 1972,
@@ -2181,7 +2192,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Taco Casa",
     originalLocation: "Tuscaloosa, Alabama",
     founded: 1974,
@@ -2192,7 +2203,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7673972"`,
     name: "Taco del Mar",
     originalLocation: "Seattle, Washington",
     founded: 1992,
@@ -2203,7 +2214,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Tacos El Cuñado",
     originalLocation: "Grand Rapids, Michigan",
     founded: 2008,
@@ -2214,7 +2225,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7673962"`,
     name: "Taco John's",
     originalLocation: "Cheyenne, Wyoming",
     founded: 1969,
@@ -2225,7 +2236,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Taco Mayo",
     originalLocation: "Norman, Oklahoma",
     founded: 1978,
@@ -2236,7 +2247,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Taco Palenque",
     originalLocation: "Laredo, Texas",
     founded: 1987,
@@ -2247,7 +2258,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7673969"`,
     name: "Taco Time",
     originalLocation: "Eugene, Oregon",
     founded: 1960,
@@ -2269,7 +2280,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Taco Villa",
     originalLocation: "Odessa, Texas",
     founded: 1968,
@@ -2280,7 +2291,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7801833"`,
     name: "Tijuana Flats",
     originalLocation: "Winter Park, Florida",
     founded: 1995,
@@ -2291,7 +2302,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"name"="Wahoo's Fish Taco"`,
     name: "Wahoo's Fish Taco",
     originalLocation: "Costa Mesa, California",
     founded: 1988,
@@ -2302,7 +2313,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "America's Incredible Pizza Company",
     originalLocation: "Springfield, Missouri",
     founded: 2002,
@@ -2313,7 +2324,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Big Mama's & Papa's Pizzeria",
     originalLocation: "Los Angeles, California",
     founded: 1992,
@@ -2324,7 +2335,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q4923061"`,
     name: "Blackjack Pizza",
     originalLocation: "Federal Heights, Colorado",
     founded: 1983,
@@ -2335,7 +2346,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q23016666"`,
     name: "Blaze Pizza",
     originalLocation: "Irvine, California",
     founded: 2011,
@@ -2346,7 +2357,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q2972189"`,
     name: "Cicis",
     originalLocation: "Plano, Texas",
     founded: 1985,
@@ -2357,7 +2368,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "D.P. Dough",
     originalLocation: "Amherst, Massachusetts",
     founded: 1983,
@@ -2368,7 +2379,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q839466"`,
     name: "Domino's",
     originalLocation: "Ypsilanti, Michigan",
     founded: 1960,
@@ -2379,7 +2390,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1240741"`,
     name: "Donatos Pizza",
     originalLocation: "Columbus, Ohio",
     founded: 1963,
@@ -2390,7 +2401,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5329751"`,
     name: "East of Chicago Pizza",
     originalLocation: "Willard, Ohio",
     founded: 1982,
@@ -2401,7 +2412,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1399195"`,
     name: "Fazoli's",
     originalLocation: "Lexington, Kentucky",
     founded: 1988,
@@ -2412,7 +2423,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5476498"`,
     name: "Fox's Pizza Den",
     originalLocation: "Pitcairn, Pennsylvania",
     founded: 1971,
@@ -2423,7 +2434,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q963973"`,
     name: "Frank Pepe's",
     originalLocation: "New Haven, Connecticut",
     founded: 1925,
@@ -2434,7 +2445,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Gino's East",
     originalLocation: "Chicago, Illinois",
     founded: 1966,
@@ -2445,7 +2456,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q84029134"`,
     name: "Gino's Pizza and Spaghetti",
     originalLocation: "Huntington, West Virginia",
     founded: 1961,
@@ -2456,7 +2467,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5563393"`,
     name: "Giordano's Pizzeria",
     originalLocation: "Chicago, Illinois",
     founded: 1974,
@@ -2467,7 +2478,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5576353"`,
     name: "Godfather's Pizza",
     originalLocation: "Omaha, Nebraska",
     founded: 1973,
@@ -2478,7 +2489,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Grotto Pizza",
     originalLocation: "Rehoboth Beach, Delaware",
     founded: 1960,
@@ -2489,7 +2500,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5652393"`,
     name: "Happy's Pizza",
     originalLocation: "Detroit, Michigan",
     founded: 1994,
@@ -2500,7 +2511,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q16985303"`,
     name: "Hungry Howie's Pizza",
     originalLocation: "Taylor, Michigan",
     founded: 1973,
@@ -2511,7 +2522,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5943909"`,
     name: "Hunt Brothers Pizza",
     originalLocation: "Nashville, Tennessee",
     founded: 1991,
@@ -2522,7 +2533,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q16997713"`,
     name: "Jet's Pizza",
     originalLocation: "Sterling Heights, Michigan",
     founded: 1978,
@@ -2533,7 +2544,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6512734"`,
     name: "Ledo Pizza",
     originalLocation: "Adelphi, Maryland",
     founded: 1955,
@@ -2544,7 +2555,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1393809"`,
     name: "Little Caesars",
     originalLocation: "Garden City, Michigan",
     founded: 1959,
@@ -2555,7 +2566,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6685628"`,
     name: "Lou Malnati's",
     originalLocation: "Lincolnwood, Illinois",
     founded: 1971,
@@ -2566,7 +2577,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6757382"`,
     name: "Marco's Pizza",
     originalLocation: "Oregon, Ohio",
     founded: 1978,
@@ -2577,7 +2588,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q19903469"`,
     name: "MOD Pizza",
     originalLocation: "Seattle, Washington",
     founded: 2008,
@@ -2588,7 +2599,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6925120"`,
     name: "Monical's Pizza",
     originalLocation: "Toledo, Illinois",
     founded: 1959,
@@ -2610,7 +2621,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Mr. Gatti's Pizza",
     originalLocation: "Stephenville, Texas",
     founded: 1964,
@@ -2621,7 +2632,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7132333"`,
     name: "Papa Gino's",
     originalLocation: "Boston, Massachusetts",
     founded: 1961,
@@ -2632,7 +2643,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q2759586"`,
     name: "Papa John's Pizza",
     originalLocation: "Jeffersonville, Indiana",
     founded: 1984,
@@ -2643,7 +2654,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7132349"`,
     name: "Papa Murphy's",
     originalLocation: "Merger",
     founded: 1995,
@@ -2654,7 +2665,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q60746053"`,
     name: "Pieology Pizzeria",
     originalLocation: "Fullerton, California",
     founded: 2011,
@@ -2665,7 +2676,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Pizza Fusion",
     originalLocation: "Deerfield Beach, Florida",
     founded: 2006,
@@ -2676,7 +2687,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q191615"`,
     name: "Pizza Hut",
     originalLocation: "Wichita, Kansas",
     founded: 1958,
@@ -2687,7 +2698,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q4118850"`,
     name: "Pizza Inn",
     originalLocation: "Dallas, Texas",
     founded: 1958,
@@ -2698,7 +2709,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Pizza Patrón",
     originalLocation: "Dallas, Texas",
     founded: 1986,
@@ -2709,7 +2720,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7199978"`,
     name: "Pizza Ranch",
     originalLocation: "Hull, Iowa",
     founded: 1981,
@@ -2720,7 +2731,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Pizzeria Regina",
     originalLocation: "Boston, Massachusetts",
     founded: 1926,
@@ -2731,7 +2742,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7371139"`,
     name: "Round Table Pizza",
     originalLocation: "Menlo Park, California",
     founded: 1959,
@@ -2742,7 +2753,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q2589409"`,
     name: "Sbarro",
     originalLocation: "New York, New York",
     founded: 1956,
@@ -2753,7 +2764,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Uncle Maddio's Pizza Joint",
     originalLocation: "Atlanta, Georgia",
     founded: 2009,
@@ -2764,7 +2775,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q17509305"`,
     name: "Chopt",
     originalLocation: "New York, New York",
     founded: 2001,
@@ -2775,7 +2786,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q23091823"`,
     name: "Just Salad",
     originalLocation: "New York, New York",
     founded: 2006,
@@ -2786,7 +2797,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7403411"`,
     name: "Saladworks",
     originalLocation: "Cherry Hill, New Jersey",
     founded: 1986,
@@ -2797,7 +2808,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q18636413"`,
     name: "Sweetgreen",
     originalLocation: "Washington, D.C.",
     founded: 2007,
@@ -2808,7 +2819,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q18636427"`,
     name: "Veggie Grill",
     originalLocation: "Irvine, California",
     founded: 2006,
@@ -2819,7 +2830,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q630866"`,
     name: "Arby's",
     originalLocation: "Boardman, Ohio",
     founded: 1964.0,
@@ -2830,7 +2841,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Atlanta Bread Company",
     originalLocation: "Sandy Springs, Georgia",
     founded: 1994.0,
@@ -2841,7 +2852,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q4926479"`,
     name: "Blimpie",
     originalLocation: "Hoboken, New Jersey",
     founded: 1964.0,
@@ -2852,7 +2863,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Camille's Sidewalk Cafe",
     originalLocation: "Tulsa, Oklahoma",
     founded: 1996.0,
@@ -2863,7 +2874,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Capriotti's",
     originalLocation: "Wilmington, Delaware",
     founded: 1976.0,
@@ -2874,7 +2885,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1066777"`,
     name: "Charleys Philly Steaks",
     originalLocation: "Columbus, Ohio",
     founded: 1986.0,
@@ -2885,7 +2896,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5171598"`,
     name: "Corner Bakery Cafe",
     originalLocation: "Chicago, Illinois",
     founded: 1991.0,
@@ -2896,7 +2907,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5175243"`,
     name: "Così",
     originalLocation: "New York, New York",
     founded: 1996.0,
@@ -2907,7 +2918,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5178843"`,
     name: "Cousins Subs",
     originalLocation: "Milwaukee, Wisconsin",
     founded: 1972.0,
@@ -2918,7 +2929,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5203069"`,
     name: "D'Angelo Grilled Sandwiches",
     originalLocation: "Dedham, Massachusetts",
     founded: 1967.0,
@@ -2929,7 +2940,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "DiBella's",
     originalLocation: "Rochester, New York",
     founded: 1918.0,
@@ -2940,7 +2951,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Earl of Sandwich",
     originalLocation: "Lake Buena Vista, Florida",
     founded: 2004.0,
@@ -2951,7 +2962,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Eegee's",
     originalLocation: "Tucson, Arizona",
     founded: 1971.0,
@@ -2962,7 +2973,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5385097"`,
     name: "Erbert & Gerbert's",
     originalLocation: "Eau Claire, Wisconsin",
     founded: 1987.0,
@@ -2973,7 +2984,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5451873"`,
     name: "Firehouse Subs",
     originalLocation: "Jacksonville, Florida",
     founded: 1994.0,
@@ -2984,7 +2995,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Great Wraps",
     originalLocation: null,
     founded: 1974.0,
@@ -2995,7 +3006,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5893363"`,
     name: "HoneyBaked Ham Co.",
     originalLocation: null,
     founded: null,
@@ -3006,7 +3017,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q16997641"`,
     name: "Jason's Deli",
     originalLocation: "Beaumont, Texas",
     founded: 1976.0,
@@ -3017,7 +3028,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Jerry's Subs & Pizza",
     originalLocation: "Wheaton, Maryland",
     founded: 1954.0,
@@ -3028,7 +3039,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6184897"`,
     name: "Jersey Mike's Subs",
     originalLocation: "Point Pleasant Beach, New Jersey",
     founded: 1956.0,
@@ -3039,7 +3050,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1689380"`,
     name: "Jimmy John's",
     originalLocation: "Charleston, Illinois",
     founded: 1983.0,
@@ -3050,7 +3061,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"name"="Kelly's Roast Beef"`,
     name: "Kelly's Roast Beef",
     originalLocation: "Revere, Massachusetts",
     founded: 1951.0,
@@ -3061,7 +3072,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q6512823"`,
     name: "Lee's Sandwiches",
     originalLocation: "San Jose, California",
     founded: 1983.0,
@@ -3072,7 +3083,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Lenny's Grill & Sub",
     originalLocation: "Memphis, Tennessee",
     founded: 1998.0,
@@ -3083,7 +3094,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Lion's Choice",
     originalLocation: "Ballwin, Missouri",
     founded: 1967.0,
@@ -3094,7 +3105,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Maid-Rite",
     originalLocation: "Muscatine, Iowa",
     founded: 1926.0,
@@ -3105,7 +3116,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q17020829"`,
     name: "McAlister's Deli",
     originalLocation: "Oxford, Mississippi",
     founded: 1989.0,
@@ -3116,7 +3127,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q110671982"`,
     name: "Mendocino Farms",
     originalLocation: "Los Angeles, California",
     founded: 2005.0,
@@ -3127,7 +3138,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Miami Grill",
     originalLocation: "Key West, Florida",
     founded: 1988.0,
@@ -3138,7 +3149,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Newk's Eatery",
     originalLocation: "Oxford, Mississippi",
     founded: 2004.0,
@@ -3149,7 +3160,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7130852"`,
     name: "Panera Bread",
     originalLocation: "Kirkwood, Missouri",
     founded: 1987.0,
@@ -3160,7 +3171,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Paris Baguette",
     originalLocation: null,
     founded: null,
@@ -3171,7 +3182,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7163311"`,
     name: "Penn Station East Coast Subs",
     originalLocation: "Cincinnati, Ohio",
     founded: 1985.0,
@@ -3182,7 +3193,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7231273"`,
     name: "Port of Subs",
     originalLocation: "Sparks, Nevada",
     founded: 1972.0,
@@ -3193,7 +3204,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7234777"`,
     name: "Potbelly Sandwich Shop",
     originalLocation: "Chicago, Illinois",
     founded: 1977.0,
@@ -3204,7 +3215,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q2109109"`,
     name: "Pret a Manger",
     originalLocation: "London, England, UK",
     founded: 1983.0,
@@ -3215,7 +3226,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"name"="Primo Hoagies"`,
     name: "Primo Hoagies",
     originalLocation: "South Philadelphia, Pennsylvania",
     founded: 1992.0,
@@ -3226,7 +3237,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1936229"`,
     name: "Quiznos",
     originalLocation: "Denver, Colorado",
     founded: 1981.0,
@@ -3237,7 +3248,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"name"="Rax Roast Beef"`,
     name: "Rax Roast Beef",
     originalLocation: "Springfield, Ohio",
     founded: 1967.0,
@@ -3248,7 +3259,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q108795782"`,
     name: "Runza",
     originalLocation: "Lincoln, Nebraska",
     founded: 1949.0,
@@ -3259,7 +3270,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Sandella's Flatbread Café",
     originalLocation: "Redding, Connecticut",
     founded: 1994.0,
@@ -3270,7 +3281,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q2244796"`,
     name: "Schlotzsky's",
     originalLocation: "Austin, Texas",
     founded: 1971.0,
@@ -3281,7 +3292,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7605235"`,
     name: "Steak Escape",
     originalLocation: "Columbus, Ohio",
     founded: 1982.0,
@@ -3292,7 +3303,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q244457"`,
     name: "Subway",
     originalLocation: "Bridgeport, Connecticut",
     founded: 1965.0,
@@ -3303,7 +3314,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q3530375"`,
     name: "Togo's",
     originalLocation: "San Jose, California",
     founded: 1971.0,
@@ -3314,7 +3325,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7850742"`,
     name: "Tubby's",
     originalLocation: "St. Clair Shores, Michigan",
     founded: 1968.0,
@@ -3325,7 +3336,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7851262"`,
     name: "Tudor's Biscuit World",
     originalLocation: "Charleston, West Virginia",
     founded: 1980.0,
@@ -3336,7 +3347,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q7993556"`,
     name: "Which Wich?",
     originalLocation: "Dallas, Texas",
     founded: 2003.0,
@@ -3347,7 +3358,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Arthur Treacher's",
     originalLocation: "New York",
     founded: 1969,
@@ -3359,7 +3370,7 @@ export const restaurantsList: Array<Restaurant> = [
       "Many Nathan's Famous and Salvatore's Pizzeria locations serve Arthur Treacher's products.",
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5036616"`,
     name: "Captain D's",
     originalLocation: "Nashville, Tennessee",
     founded: 1969,
@@ -3370,7 +3381,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1535221"`,
     name: "Long John Silver's",
     originalLocation: "Lexington, Kentucky",
     founded: 1969,
@@ -3392,7 +3403,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Bakers Square",
     originalLocation: "Nashville, Tennessee",
     founded: 1969.0,
@@ -3403,7 +3414,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Bennigan's",
     originalLocation: "Atlanta, Georgia",
     founded: 1976.0,
@@ -3414,7 +3425,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q4835755"`,
     name: "BJ's Restaurant",
     originalLocation: "Santa Ana, California",
     founded: 1978.0,
@@ -3426,7 +3437,7 @@ export const restaurantsList: Array<Restaurant> = [
       "Operates as BJ's Restaurant & Brewery, BJ's Restaurant & Brewhouse, BJ's Grill, and BJ's Pizza & Grill.",
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q4920343"`,
     name: "Black Bear Diner",
     originalLocation: "Mount Shasta, California",
     founded: 1995.0,
@@ -3437,7 +3448,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q4932386"`,
     name: "Bob Evans Restaurant",
     originalLocation: "Gallipolis, Ohio",
     founded: 1948.0,
@@ -3448,7 +3459,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Boomarang Diner",
     originalLocation: "Muskogee, Oklahoma",
     founded: 1998.0,
@@ -3459,7 +3470,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q5089187"`,
     name: "Cheddar's Scratch Kitchen",
     originalLocation: "Arlington, Texas",
     founded: 1979.0,
@@ -3470,7 +3481,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q1045842"`,
     name: "The Cheesecake Factory",
     originalLocation: "Beverly Hills, California",
     founded: 1978.0,
@@ -3481,7 +3492,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: "14 locations are branded as Grand Lux Cafe.",
   },
   {
-    filter: "",
+    filter: `"brand:wikidata"="Q17511079"`,
     name: "Cooper's Hawk Winery & Restaurant",
     originalLocation: "Orland Park, Illinois",
     founded: 2005.0,
@@ -3492,7 +3503,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: "",
+    filter: ``,
     name: "Del Frisco's Grille",
     originalLocation: null,
     founded: null,
@@ -3569,7 +3580,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: ``,
+    filter: `"name"="Houlihan's"`,
     name: "Houlihan's",
     originalLocation: "Kansas City, Missouri",
     founded: 1972.0,
@@ -3636,7 +3647,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q6695701"`,
+    filter: `"brand:wikidata"="Q6695701"`,
     name: "Luby's",
     originalLocation: "San Antonio, Texas",
     founded: 1947.0,
@@ -3647,7 +3658,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q6762784"`,
+    filter: `"brand:wikidata"="Q6762784"`,
     name: "Marie Callender's",
     originalLocation: "Orange, California",
     founded: 1964.0,
@@ -3658,7 +3669,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q104870732"`,
+    filter: `"brand:wikidata"="Q104870732"`,
     name: "Metro Diner",
     originalLocation: "Tampa, Florida",
     founded: 1992.0,
@@ -3669,7 +3680,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q7071703"`,
+    filter: `"brand:wikidata"="Q7071703"`,
     name: "O'Charley's",
     originalLocation: "Nashville, Tennessee",
     founded: 1971.0,
@@ -3691,7 +3702,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q3391111"`,
+    filter: `"brand:wikidata"="Q3391111"`,
     name: "Rainforest Cafe",
     originalLocation: "Bloomington, Minnesota",
     founded: 1994.0,
@@ -3713,7 +3724,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q7376400"`,
+    filter: `"brand:wikidata"="Q7376400"`,
     name: "Ruby Tuesday",
     originalLocation: "Knoxville, Tennessee",
     founded: 1972.0,
@@ -3747,7 +3758,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q7441933"`,
+    filter: `"brand:wikidata"="Q7441933"`,
     name: "Seasons 52",
     originalLocation: "Orlando, Florida",
     founded: 2003.0,
@@ -3769,7 +3780,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q7500392"`,
+    filter: `"brand:wikidata"="Q7500392"`,
     name: "Shoney's",
     originalLocation: "Charleston, West Virginia",
     founded: 1947.0,
@@ -3780,7 +3791,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q16953170"`,
+    filter: `"brand:wikidata"="Q16953170"`,
     name: "Ted's Montana Grill",
     originalLocation: "Columbus, Ohio",
     founded: 2002.0,
@@ -3791,7 +3802,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q1524184"`,
+    filter: `"brand:wikidata"="Q1524184"`,
     name: "TGI Fridays",
     originalLocation: "New York City, New York",
     founded: 1965.0,
@@ -3824,7 +3835,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q118480682"`,
+    filter: `"brand:wikidata"="Q118480682"`,
     name: "7 Leaves Cafe",
     originalLocation: "Westminster, California",
     founded: 2011.0,
@@ -3835,7 +3846,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q4887996"`,
+    filter: `"brand:wikidata"="Q4887996"`,
     name: "Benihana",
     originalLocation: "New York, New York",
     founded: 1964.0,
@@ -3857,7 +3868,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q5924606"`,
+    filter: `"brand:wikidata"="Q5924606"`,
     name: "HuHot Mongolian Grill",
     originalLocation: "Missoula, Montana",
     founded: 1999.0,
@@ -3879,7 +3890,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q6428706"`,
+    filter: `"brand:wikidata"="Q6428706"`,
     name: "Kona Grill",
     originalLocation: "Scottsdale, Arizona",
     founded: 1998.0,
@@ -3901,7 +3912,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q5360181"`,
+    filter: `"brand:wikidata"="Q5360181"`,
     name: "P.F. Chang's China Bistro",
     originalLocation: "Scottsdale, Arizona",
     founded: 1993.0,
@@ -3923,7 +3934,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q16935493"`,
+    filter: `"brand:wikidata"="Q16935493"`,
     name: "Bar Louie",
     originalLocation: null,
     founded: 1990,
@@ -3934,7 +3945,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q4879745"`,
+    filter: `"brand:wikidata"="Q4879745"`,
     name: "Beef O'Brady's",
     originalLocation: "Brandon, Florida",
     founded: 1985,
@@ -3945,7 +3956,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q22022696"`,
+    filter: `"brand:wikidata"="Q22022696"`,
     name: "HopCat",
     originalLocation: "Grand Rapids, Michigan",
     founded: 2008,
@@ -3956,7 +3967,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q6858987"`,
+    filter: `"brand:wikidata"="Q6858987"`,
     name: "Miller's Ale House",
     originalLocation: "Jupiter, Florida",
     founded: 1988,
@@ -3967,7 +3978,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q7858255"`,
+    filter: `"brand:wikidata"="Q7858255"`,
     name: "Twin Peaks",
     originalLocation: "Lewisville, Texas",
     founded: 2008,
@@ -3978,7 +3989,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q21189156"`,
+    filter: `"brand:wikidata"="Q21189156"`,
     name: "Yard House",
     originalLocation: "Long Beach, California",
     founded: 1996,
@@ -3989,7 +4000,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q1189695"`,
+    filter: `"brand:wikidata"="Q1189695"`,
     name: "Denny's",
     originalLocation: "Lakewood, California",
     founded: 1953,
@@ -4000,7 +4011,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q5454064"`,
+    filter: `"brand:wikidata"="Q5454064"`,
     name: "First Watch",
     originalLocation: "Pacific Grove, California",
     founded: 1983,
@@ -4011,7 +4022,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q1185675"`,
+    filter: `"brand:wikidata"="Q1185675"`,
     name: "IHOP",
     originalLocation: "Los Angeles, California",
     founded: 1958,
@@ -4033,7 +4044,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata="Q7755384"`,
+    filter: `"brand:wikidata"="Q7755384"`,
     name: "The Original Pancake House",
     originalLocation: "Portland, Oregon",
     founded: 1953,
@@ -4946,7 +4957,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"name"="Texas de Brazil""`,
+    filter: `"name"="Texas de Brazil"`,
     name: "Texas de Brazil",
     originalLocation: "Addison, Texas",
     founded: "1998",
