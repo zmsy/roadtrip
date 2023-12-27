@@ -128,7 +128,6 @@ dist
 
 # roadtrip cache of restaurant json
 .roadtrip_cache
-.osrm_cache
 
 *.js
 *.js.map
