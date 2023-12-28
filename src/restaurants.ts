@@ -3261,17 +3261,6 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"name"="Bill Miller Bar-B-Q"`,
-    name: "Bill Miller Bar-B-Q",
-    originalLocation: null,
-    founded: 1953.0,
-    headquarters: "San Antonio, Texas",
-    parentCompany: null,
-    numUSLocations: 76,
-    areasServed: "Nationwide",
-    notes: null,
-  },
-  {
     filter: `"brand:wikidata"="Q5168346"`,
     name: "Copeland's",
     originalLocation: "New Orleans, Louisiana",
