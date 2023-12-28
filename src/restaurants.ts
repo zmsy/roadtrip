@@ -1,4 +1,4 @@
-type Restaurant = {
+export type Restaurant = {
   /**
    * What's the name of this restaurant?
    */

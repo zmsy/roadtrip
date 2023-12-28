@@ -1,4 +1,9 @@
+import { inspect } from "util";
+
 import { OverpassNode, OverpassResponse } from "./overpass";
+
+// const OSRM_API_URL = `http://router.project-osrm.org`;
+const OSRM_API_URL = `https://routing.openstreetmap.de/routed-car`;
 
 /**
  * Generated these types from the OSRM response types:
@@ -69,27 +74,49 @@ type Waypoint = {
   location: [number, number];
 };
 
+/** Convert meters to miles. */
+const metersToMiles = (meters: number): number => meters * 0.000621371;
+
+/**
+ * Get the set of search params for the overpass trips API. Detailed here:
+ * http://project-osrm.org/docs/v5.5.1/api/?language=cURL#trip-service
+ */
+const getOverpassSearchParams = (): string => {
+  const params = new URLSearchParams([
+    // ["annotations", "true"],
+    ["overview", "simplified"], // full geo is too big of a file size
+    ["geometries", "polyline6"], // use 6 digit coords
+    // ["roundtrip", "false"], // don't require returning to start
+  ]);
+  return params.toString();
+};
+
 /**
  * Using the coordinates from an Overpass response, generate a curl call for
  * OSRM to get the optimal route.
  */
 export const formatOverpassNodesasURL = (elements?: OverpassNode[]): string => {
-  elements ??= [];
-  const latLongPairs = elements.map((el) => `${el.lat},${el.lon}`);
+  const latLongPairs = (elements ?? []).map((el) => `${el.lon},${el.lat}`);
   const coordinates = latLongPairs.join(";");
-  return `http://router.project-osrm.org/trip/v1/driving/${coordinates}`;
+  const params = getOverpassSearchParams();
+  return `${OSRM_API_URL}/trip/v1/driving/${coordinates}?${params}`;
 };
 
 export const getOSRMRoute = async (
-  overpass: OverpassResponse
+  response: OverpassResponse
 ): Promise<OSRMRoute | undefined> => {
-  const url = formatOverpassNodesasURL(overpass?.elements);
+  const url = formatOverpassNodesasURL(response?.elements);
   try {
     const result = await fetch(url);
     const data = await result.json();
     return data as OSRMRoute;
   } catch (err) {
-    console.log(err);
+    console.error(
+      inspect({
+        err,
+        url,
+      })
+    );
   }
 
   return undefined;
