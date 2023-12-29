@@ -3,12 +3,12 @@ import * as path from "path";
 
 import type { OverpassResponse } from "./overpass";
 
-type Subfolder = "overpass" | "osrm";
+type Subfolder = "overpass" | "osrm" | "images";
 
 /**
  * Return the cache folder.
  */
-const getCacheDir = () => path.join(process.cwd(), ".roadtrip_cache");
+export const getCacheDir = () => path.join(process.cwd(), ".roadtrip_cache");
 
 /**
  * Get the location of a specific file in the cache.
@@ -19,11 +19,11 @@ const getCacheFilePath = (slug: string, subfolder: Subfolder) =>
 /**
  * Check to see if there's a cached overpass response and return it.
  */
-export const getCachedJson = async (
+export const getCachedJson = async <T>(
   slug: string,
   subfolder: Subfolder,
   invalidate = false
-): Promise<OverpassResponse | undefined> => {
+): Promise<T | undefined> => {
   // this is just a forcing function to return nothing if we're invalidating the
   // cache instead of using it.
   if (invalidate) {
@@ -31,13 +31,12 @@ export const getCachedJson = async (
   }
 
   const fileName = getCacheFilePath(slug, subfolder);
-  console.log("Hey!");
   try {
     await fs.access(fileName);
     const data = await fs.readFile(fileName);
-    return JSON.parse(data.toString()) as OverpassResponse;
+    return JSON.parse(data.toString()) as T;
   } catch (err: unknown) {
-    console.log();
+    // pass if cache miss
   }
 
   return undefined;

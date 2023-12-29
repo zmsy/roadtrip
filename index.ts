@@ -1,8 +1,9 @@
 import { restaurantsList } from "./src/restaurants";
 import { slugify } from "./src/util";
 import { getCachedJson, writeCacheJson } from "./src/cache";
-import { getOverpassNodes } from "./src/overpass";
-import { getOSRMRoute } from "./src/osrm";
+import { OverpassResponse, getOverpassNodes } from "./src/overpass";
+import { OSRMRoute, getOSRMRoute } from "./src/osrm";
+import { generateMap } from "./src/map-generation";
 
 /**
  * Retrieve all overpass nodes for the restaurants that don't have an existing
@@ -18,7 +19,7 @@ const getAllOverpassNodes = async () => {
     }
 
     const slug = slugify(name);
-    const cached = await getCachedJson(slug, "overpass");
+    const cached = await getCachedJson<OverpassResponse>(slug, "overpass");
     if (!cached) {
       const result = await getOverpassNodes(filter);
       if (result) {
@@ -36,11 +37,14 @@ const getOSRMRoutes = async () => {
 
     // if there's either 1. already a result or 2. no overpass result, just skip
     // this round.
-    const osrmResponse = await getCachedJson(slug, "osrm");
-    if (osrmResponse) {
+    const osrmRoute = await getCachedJson<OSRMRoute>(slug, "osrm");
+    if (osrmRoute) {
       continue;
     }
-    const overpassResponse = await getCachedJson(slug, "overpass");
+    const overpassResponse = await getCachedJson<OverpassResponse>(
+      slug,
+      "overpass"
+    );
     if (!overpassResponse) {
       continue;
     }
@@ -55,7 +59,31 @@ const getOSRMRoutes = async () => {
   }
 };
 
+const generateAllMaps = async () => {
+  for (const restaurant of restaurantsList) {
+    const { name } = restaurant;
+    const slug = slugify(name);
+    if (slug !== "fultanos-pizza") {
+      continue;
+    }
+
+    // if there's either 1. already a result or 2. no overpass result, just skip
+    // this round.
+    const osrmRoute = await getCachedJson<OSRMRoute>(slug, "osrm");
+    const overpassResponse = await getCachedJson<OverpassResponse>(
+      slug,
+      "overpass"
+    );
+    if (!overpassResponse || !osrmRoute) {
+      continue;
+    }
+
+    generateMap(slug, osrmRoute, overpassResponse);
+  }
+};
+
 (async () => {
   // await getAllOverpassNodes();
-  await getOSRMRoutes();
+  // await getOSRMRoutes();
+  await generateAllMaps();
 })();
