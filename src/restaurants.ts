@@ -14,6 +14,11 @@ export type Restaurant = {
   numUSLocations: number | null | string;
   areasServed: null | string;
   notes: null | string;
+  /**
+   * Does this chain have island locations that need filtering? This query is
+   * slower so it's conditionally invoked.
+   */
+  hasIslands?: boolean;
 };
 
 /**
@@ -77,6 +82,7 @@ export const restaurantsList: Array<Restaurant> = [
     areasServed:
       "Western states, Hawaii, Alaska, Texas, New York, Florida, North Carolina, Guam",
     notes: "Known as L&L Drive-Inn in Hawaii",
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q6747622"`,
@@ -330,6 +336,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "280",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7990205"`,
@@ -341,6 +348,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "350",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q8023756"`,
@@ -418,6 +426,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "1,000+",
     areasServed: "California",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q847743"`,
@@ -495,6 +504,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "5700",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q18156812"`,
@@ -583,6 +593,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "298",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q5093401"`,
@@ -726,6 +737,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 169,
     areasServed: "Southeast",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1330910"`,
@@ -836,6 +848,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 371,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1094923"`,
@@ -891,6 +904,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 600,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q16983222"`,
@@ -946,6 +960,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 260,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7304565"`,
@@ -957,6 +972,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 50,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7336456"`,
@@ -1001,6 +1017,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "1,300+",
     areasServed: "East Coast, Illinois, Texas",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q8054428"`,
@@ -1067,6 +1084,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "120",
     areasServed: "East and Midwest",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1043486"`,
@@ -1233,6 +1251,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "238",
     areasServed: "Southeast",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q472195"`,
@@ -1244,6 +1263,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "360",
     areasServed: "Southeast",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q38076"`,
@@ -1398,6 +1418,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 80,
     areasServed: "West",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"name"="Nathan's Famous"`,
@@ -1618,6 +1639,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "100",
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7673962"`,
@@ -1926,6 +1948,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "97",
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q2759586"`,
@@ -1959,6 +1982,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "140",
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q191615"`,
@@ -2554,6 +2578,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 392,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"name"="Ground Round"`,
@@ -2576,6 +2601,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 35,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1025921"`,
@@ -2587,6 +2613,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 420,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"name"="Houlihan's"`,
@@ -2676,6 +2703,7 @@ export const restaurantsList: Array<Restaurant> = [
     areasServed:
       "East (with isolated locations across the U.S including Hawaii)",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7441933"`,
@@ -2720,6 +2748,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 310,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q118480682"`,
@@ -2775,6 +2804,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 209,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4879745"`,
@@ -2830,6 +2860,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 81,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1189695"`,
@@ -2874,6 +2905,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 144,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7169056"`,
@@ -3017,6 +3049,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 70,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q15109854"`,
@@ -3028,6 +3061,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 169,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7754912"`,
@@ -3039,6 +3073,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 42,
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q3045312"`,
@@ -3061,6 +3096,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 40,
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4895917"`,
@@ -3292,6 +3328,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 115,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"name"="Grandy's"`,
@@ -3402,6 +3439,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 551.0,
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q17022759"`,
@@ -3413,6 +3451,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 55.0,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1064893"`,
@@ -3435,6 +3474,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 129.0,
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"name"="Sizzler"`,
@@ -3446,6 +3486,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 86.0,
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"name"="Texas de Brazil"`,
@@ -3457,6 +3498,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 51.0,
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7707945"`,
@@ -3512,6 +3554,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 142,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"name"="Peter Piper Pizza"`,

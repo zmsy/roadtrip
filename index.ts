@@ -11,7 +11,7 @@ import { generateMap } from "./src/map-generation";
  */
 const getAllOverpassNodes = async () => {
   for (const restaurant of restaurantsList) {
-    const { name, filter } = restaurant;
+    const { name, filter, hasIslands } = restaurant;
 
     // ignore ones that i've not added filters for.
     if (filter.length === 0) {
@@ -21,7 +21,7 @@ const getAllOverpassNodes = async () => {
     const slug = slugify(name);
     const cached = await getCachedJson<OverpassResponse>(slug, "overpass");
     if (!cached) {
-      const result = await getOverpassNodes(filter);
+      const result = await getOverpassNodes(filter, hasIslands ?? false);
       if (result) {
         const stringified = JSON.stringify(result, null, 2);
         writeCacheJson(slug, "overpass", stringified);

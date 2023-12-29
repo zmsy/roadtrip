@@ -41,7 +41,7 @@ export type OverpassResponse = {
  * Create an overpass query for the given filter to return the entire set of
  * nodes in the given areas.
  */
-const getQuery = (filter: string): string => `
+const getBasicQuery = (filter: string): string => `
   [out:json];
 
   (
@@ -54,11 +54,84 @@ const getQuery = (filter: string): string => `
   out;
 `;
 
+/**
+ * In the event a chain has too many locations on islands, this is a way to
+ * explicitly filter those locations out. I couldn't figure out how to remove
+ * the islands from the individual query, so I instead just listed all states.
+ */
+const getStateByStateQuery = (filter: string): string => `
+  [out:json];
+
+  (
+    // canada & mexico
+    area["name"="Canada"]->.searchArea;
+    area["name"="México"]->.searchArea;
+
+    // all of the us states individually listed
+    area["name"="Alabama"];
+    area["name"="Alaska"];
+    area["name"="Arizona"];
+    area["name"="Arkansas"];
+    area["name"="California"];
+    area["name"="Colorado"];
+    area["name"="Connecticut"];
+    area["name"="Delaware"];
+    area["name"="District of Columbia"];
+    area["name"="Florida"];
+    area["name"="Georgia"];
+    area["name"="Idaho"];
+    area["name"="Illinois"];
+    area["name"="Indiana"];
+    area["name"="Iowa"];
+    area["name"="Kansas"];
+    area["name"="Kentucky"];
+    area["name"="Louisiana"];
+    area["name"="Maine"];
+    area["name"="Maryland"];
+    area["name"="Massachusetts"];
+    area["name"="Michigan"];
+    area["name"="Minnesota"];
+    area["name"="Mississippi"];
+    area["name"="Missouri"];
+    area["name"="Montana"];
+    area["name"="Nebraska"];
+    area["name"="Nevada"];
+    area["name"="New Hampshire"];
+    area["name"="New Jersey"];
+    area["name"="New Mexico"];
+    area["name"="New York"];
+    area["name"="North Carolina"];
+    area["name"="North Dakota"];
+    area["name"="Ohio"];
+    area["name"="Oklahoma"];
+    area["name"="Oregon"];
+    area["name"="Pennsylvania"];
+    area["name"="Rhode Island"];
+    area["name"="South Carolina"];
+    area["name"="South Dakota"];
+    area["name"="Tennessee"];
+    area["name"="Texas"];
+    area["name"="Utah"];
+    area["name"="Vermont"];
+    area["name"="Virginia"];
+    area["name"="Washington"];
+    area["name"="West Virginia"];
+    area["name"="Wisconsin"];
+    area["name"="Wyoming"];
+  )->.searchArea;
+
+  node[${filter}](area.searchArea);
+  out;
+`;
+
 export const getOverpassNodes = async (
-  filter: string
+  filter: string,
+  hasIslands: boolean
 ): Promise<OverpassResponse | undefined> => {
   let json: OverpassResponse | undefined;
-  const body = getQuery(filter);
+  const body = hasIslands
+    ? getStateByStateQuery(filter)
+    : getBasicQuery(filter);
   try {
     const result = await fetch(OVERPASS_URL, {
       body,
