@@ -15,6 +15,17 @@ export type OSRMRoute = {
   waypoints: Waypoint[];
 };
 
+export type OSRMError = {
+  error: string;
+};
+
+export type OSRMInvalidRoute = {
+  code: string;
+  message: string;
+};
+
+export type OSRMResponse = OSRMRoute | OSRMError | OSRMInvalidRoute;
+
 type Trip = {
   geometry: string;
   legs: Leg[];

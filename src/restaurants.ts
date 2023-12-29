@@ -2777,17 +2777,6 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata"="Q16935493"`,
-    name: "Bar Louie",
-    originalLocation: null,
-    founded: 1990,
-    headquarters: "Addison, Texas",
-    parentCompany: null,
-    numUSLocations: 69,
-    areasServed: "Nationwide",
-    notes: null,
-  },
-  {
     filter: `"brand:wikidata"="Q4879745"`,
     name: "Beef O'Brady's",
     originalLocation: "Brandon, Florida",

@@ -2,7 +2,7 @@ import { restaurantsList } from "./src/restaurants";
 import { slugify } from "./src/util";
 import { getCachedJson, writeCacheJson } from "./src/cache";
 import { OverpassResponse, getOverpassNodes } from "./src/overpass";
-import { OSRMRoute, getOSRMRoute } from "./src/osrm";
+import { OSRMResponse, OSRMRoute, getOSRMRoute } from "./src/osrm";
 import { generateMap } from "./src/map-generation";
 
 /**
@@ -37,8 +37,8 @@ const getOSRMRoutes = async () => {
 
     // if there's either 1. already a result or 2. no overpass result, just skip
     // this round.
-    const osrmRoute = await getCachedJson<OSRMRoute>(slug, "osrm");
-    if (osrmRoute) {
+    const osrmResponse = await getCachedJson<OSRMResponse>(slug, "osrm");
+    if (osrmResponse) {
       continue;
     }
     const overpassResponse = await getCachedJson<OverpassResponse>(
@@ -63,13 +63,10 @@ const generateAllMaps = async () => {
   for (const restaurant of restaurantsList) {
     const { name } = restaurant;
     const slug = slugify(name);
-    if (slug !== "fultanos-pizza") {
-      continue;
-    }
 
     // if there's either 1. already a result or 2. no overpass result, just skip
     // this round.
-    const osrmRoute = await getCachedJson<OSRMRoute>(slug, "osrm");
+    const osrmRoute = await getCachedJson<OSRMResponse>(slug, "osrm");
     const overpassResponse = await getCachedJson<OverpassResponse>(
       slug,
       "overpass"
@@ -84,6 +81,6 @@ const generateAllMaps = async () => {
 
 (async () => {
   // await getAllOverpassNodes();
-  // await getOSRMRoutes();
+  await getOSRMRoutes();
   await generateAllMaps();
 })();
