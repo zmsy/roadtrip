@@ -80,7 +80,7 @@ const generateAllMaps = async () => {
 };
 
 (async () => {
-  // await getAllOverpassNodes();
+  await getAllOverpassNodes();
   await getOSRMRoutes();
   await generateAllMaps();
 })();
