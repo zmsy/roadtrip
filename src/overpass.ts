@@ -45,9 +45,9 @@ const getBasicQuery = (filter: string): string => `
   [out:json];
 
   (
-    area["name"="United States"]->.searchArea;
-    area["name"="Canada"]->.searchArea;
-    area["name"="México"]->.searchArea;
+    area["name"="United States"];
+    area["name"="Canada"];
+    area["name"="México"];
   )->.searchArea;
 
   node[${filter}](area.searchArea);
@@ -64,8 +64,8 @@ const getStateByStateQuery = (filter: string): string => `
 
   (
     // canada & mexico
-    area["name"="Canada"]->.searchArea;
-    area["name"="México"]->.searchArea;
+    area["name"="Canada"];
+    area["name"="México"];
 
     // all of the us states individually listed
     area["name"="Alabama"];
