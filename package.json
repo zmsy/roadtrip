@@ -10,13 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@turf/turf": "^6.5.0",
     "@mapbox/polyline": "^1.2.1",
+    "@turf/turf": "^6.5.0",
     "staticmaps": "^1.13.0"
   },
   "devDependencies": {
     "@types/geojson": "^7946.0.13",
+    "@types/mapbox__polyline": "^1.0.5",
     "@types/node": "^20.10.5",
+    "@types/staticmaps": "^1.12.5",
     "typescript": "^5.3.3"
   }
 }
