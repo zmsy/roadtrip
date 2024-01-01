@@ -10,7 +10,7 @@ const OSRM_API_URL = `https://routing.openstreetmap.de/routed-car`;
  * http://project-osrm.org/docs/v5.5.1/api/?language=cURL#result-objects
  */
 export type OSRMRoute = {
-  code: string;
+  code: "Ok";
   trips: Trip[];
   waypoints: Waypoint[];
 };
@@ -25,6 +25,12 @@ export type OSRMInvalidRoute = {
 };
 
 export type OSRMResponse = OSRMRoute | OSRMError | OSRMInvalidRoute;
+
+export const isOSRMRoute = (
+  response: OSRMResponse | undefined
+): response is OSRMRoute => {
+  return (response as OSRMRoute)?.["code"] === "Ok";
+};
 
 type Trip = {
   geometry: string;

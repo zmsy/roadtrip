@@ -1,7 +1,6 @@
 import * as StaticMaps from "staticmaps";
 import { decode } from "@mapbox/polyline";
 import * as path from "path";
-import { Feature, Point, center, points } from "@turf/turf";
 
 import { OSRMResponse, OSRMRoute } from "./osrm";
 import { OverpassResponse } from "./overpass";
@@ -13,14 +12,6 @@ const MAP_TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 const MAP_ZOOM_RANGE: StaticMaps.StaticMapsOptions["zoomRange"] = {
   max: 17,
   min: 4,
-};
-
-/**
- * Get the center of the list of coordinates for a polyline.
- */
-const getCenter = (coords: number[][]): Feature<Point> => {
-  const features = points(coords);
-  return center(features);
 };
 
 /** Return the coordinates of the route in [long, lat] format. */

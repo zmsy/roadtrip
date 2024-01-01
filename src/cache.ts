@@ -13,7 +13,7 @@ export const getCacheDir = () => path.join(process.cwd(), ".roadtrip_cache");
 /**
  * Get the location of a specific file in the cache.
  */
-const getCacheFilePath = (slug: string, subfolder: Subfolder) =>
+export const getCacheFilePath = (slug: string, subfolder: Subfolder) =>
   path.join(getCacheDir(), subfolder, `${slug}.json`);
 
 /**
