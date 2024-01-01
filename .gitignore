@@ -132,3 +132,6 @@ dist
 *.js
 *.js.map
 .DS_Store
+
+# google authentication portion
+credentials.json
