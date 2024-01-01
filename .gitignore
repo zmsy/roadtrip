@@ -135,3 +135,4 @@ dist
 
 # google authentication portion
 credentials.json
+token.json
