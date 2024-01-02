@@ -41,7 +41,7 @@ type Trip = {
   distance: number;
 };
 
-type Leg = {
+export type Leg = {
   steps: Step[];
   summary: string;
   weight: number;
@@ -90,9 +90,6 @@ type Waypoint = {
   name: string;
   location: [number, number];
 };
-
-/** Convert meters to miles. */
-const metersToMiles = (meters: number): number => meters * 0.000621371;
 
 /**
  * Get the set of search params for the overpass trips API. Detailed here:

@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 
-type Subfolder = "overpass" | "osrm" | "images" | "markdown";
+type Subfolder = "overpass" | "osrm" | "images" | "markdown" | "summary";
 
 /**
  * Return the cache folder.
