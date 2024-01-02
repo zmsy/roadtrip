@@ -14,7 +14,7 @@ type Payload = {
 
 const isPayload = (t: Payload | null): t is Payload => t !== null;
 
-export const generatePayloads = async (): Promise<Array<Payload>> => {
+const getPayloads = async (): Promise<Array<Payload>> => {
   const payloads: Array<Payload | null> = await Promise.all(
     restaurantsList.map(async (restaurant) => {
       const { name } = restaurant;
@@ -37,4 +37,8 @@ export const generatePayloads = async (): Promise<Array<Payload>> => {
     })
   );
   return payloads.filter(isPayload);
+};
+
+export const generateSlides = async (): Promise<void> => {
+  console.log(`Presentation!`);
 };

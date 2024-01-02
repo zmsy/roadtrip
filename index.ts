@@ -2,8 +2,9 @@ import { restaurantsList } from "./src/restaurants";
 import { slugify } from "./src/util";
 import { getCachedJson, writeCacheJson } from "./src/cache";
 import { OverpassResponse, getOverpassNodes } from "./src/overpass";
-import { OSRMResponse, OSRMRoute, getOSRMRoute } from "./src/osrm";
+import { OSRMResponse, getOSRMRoute } from "./src/osrm";
 import { generateMap } from "./src/map-generation";
+import { generateSlides } from "./src/slides";
 
 /**
  * Retrieve all overpass nodes for the restaurants that don't have an existing
@@ -80,7 +81,8 @@ const generateAllMaps = async () => {
 };
 
 (async () => {
-  await getAllOverpassNodes();
-  await getOSRMRoutes();
-  await generateAllMaps();
+  // await getAllOverpassNodes();
+  // await getOSRMRoutes();
+  // await generateAllMaps();
+  await generateSlides();
 })();
