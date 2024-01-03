@@ -83,6 +83,6 @@ export const clearInvalidEntries = async () => {
     }
   };
 
-  removeInvalidEntries(path.join(getCacheDir(), "osrm"));
-  removeInvalidEntries(path.join(getCacheDir(), "overpass"));
+  await removeInvalidEntries(path.join(getCacheDir(), "osrm"));
+  await removeInvalidEntries(path.join(getCacheDir(), "overpass"));
 };

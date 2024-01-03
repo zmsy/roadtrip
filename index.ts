@@ -1,6 +1,10 @@
 import { restaurantsList } from "./src/restaurants";
 import { slugify } from "./src/util";
-import { getCachedJson, writeCacheJson } from "./src/cache";
+import {
+  clearInvalidEntries,
+  getCachedJson,
+  writeCacheJson,
+} from "./src/cache";
 import { OverpassResponse, getOverpassNodes } from "./src/overpass";
 import { OSRMResponse, getOSRMRoute } from "./src/osrm";
 import { generateMap } from "./src/map-generation";
@@ -82,7 +86,8 @@ const generateAllMaps = async () => {
 
 (async () => {
   // await getAllOverpassNodes();
-  // await getOSRMRoutes();
-  // await generateAllMaps();
+  await clearInvalidEntries();
+  await getOSRMRoutes();
+  await generateAllMaps();
   await generateSlides();
 })();
