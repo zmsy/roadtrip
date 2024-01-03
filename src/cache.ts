@@ -86,3 +86,14 @@ export const clearInvalidEntries = async () => {
   await removeInvalidEntries(path.join(getCacheDir(), "osrm"));
   await removeInvalidEntries(path.join(getCacheDir(), "overpass"));
 };
+
+export const resetSlug = async (slug: string): Promise<void> => {
+  const subfolders: Subfolder[] = ["osrm", "overpass"];
+  for (const subfolder of subfolders) {
+    try {
+      await fs.unlink(getCacheFilePath(slug, subfolder));
+    } catch (err) {
+      console.error(err);
+    }
+  }
+};

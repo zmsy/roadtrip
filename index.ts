@@ -3,6 +3,7 @@ import { slugify } from "./src/util";
 import {
   clearInvalidEntries,
   getCachedJson,
+  resetSlug,
   writeCacheJson,
 } from "./src/cache";
 import { OverpassResponse, getOverpassNodes } from "./src/overpass";
@@ -80,14 +81,28 @@ const generateAllMaps = async () => {
       continue;
     }
 
-    generateMap(slug, osrmRoute, overpassResponse);
+    await generateMap(slug, osrmRoute, overpassResponse);
   }
 };
 
 (async () => {
+  // const toReset = [
+  //   "starbucks",
+  //   "red-lobster",
+  //   "sonic-drive-in",
+  //   "brueggers-bagels",
+  //   "raising-canes-chicken-fingers",
+  //   "yogurtland",
+  //   "five-guys",
+  //   "marcos-pizza",
+  //   "sbarro",
+  //   "arbys",
+  //   "baskin-robbins",
+  // ];
+  // toReset.forEach((slug) => resetSlug(slug));
   // await getAllOverpassNodes();
-  await clearInvalidEntries();
-  await getOSRMRoutes();
+  // await clearInvalidEntries();
+  // await getOSRMRoutes();
   await generateAllMaps();
   await generateSlides();
 })();
