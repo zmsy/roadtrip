@@ -1,6 +1,6 @@
 import { getCacheFilePath, getCachedJson, writeCacheJson } from "./cache";
 import { Leg, OSRMResponse, OSRMRoute, isOSRMRoute, Trip } from "./osrm";
-import { OverpassResponse } from "./overpass";
+import { LatLon, OverpassResponse } from "./overpass";
 import { Restaurant, restaurantsList } from "./restaurants";
 import { slugify } from "./util";
 
@@ -43,6 +43,10 @@ type Summary = {
   densityScore: number;
   /** Stop distance = distance to + distance from, what's the farthest?  */
   furthestStopDistance: number;
+  /** Northernmost point */
+  northernMostLat: number;
+  /** Southernmost point */
+  southernMostLat: number;
 };
 
 type SummaryTopNLists = {
@@ -135,8 +139,8 @@ const sum = (nums: number[]) => round(nums.reduce((a, b) => a + b));
 
 const generateSummary = (payload: Payload): Summary => {
   const { osrmRoute } = payload;
-  const [trip] = payload.osrmRoute.trips;
-  // const totalMiles = round(metersToMiles(trip.distance));
+
+  // trip-based metrics
   const numTrips = mapReduce(osrmRoute, (trip) => 1, sum);
   const totalMiles = mapReduce(
     osrmRoute,
@@ -144,24 +148,42 @@ const generateSummary = (payload: Payload): Summary => {
     sum
   );
   const numStops = mapReduce(osrmRoute, (trip) => trip.legs.length - 1, sum);
-  const drivingHours = round(trip.duration / (60 * 60)); // time in Days
+  const drivingHours = mapReduce(
+    osrmRoute,
+    (trip) => round(trip.duration / (60 * 60)),
+    sum
+  );
   const stoppingHours = numStops;
   const days = round((drivingHours + stoppingHours) / DRIVING_HOURS_PER_DAY);
   const stopsPerDay = round(numStops / days);
+  const densityScore = round(numStops / days);
   const numPeeBreaks = Math.round(drivingHours / 3);
+
+  // individual leg-based metrics
+  const tripLegs = osrmRoute.trips.flatMap((trip) => trip.legs);
   const longestLeg = round(
-    metersToMiles(
-      trip.legs.reduce((max, leg) => Math.max(max, leg.distance), 0)
-    )
+    metersToMiles(tripLegs.reduce((max, leg) => Math.max(max, leg.distance), 0))
   );
   const medianLeg = round(
-    metersToMiles(median(trip.legs.map((leg) => leg.distance)))
+    metersToMiles(median(tripLegs.map((leg) => leg.distance)))
   );
   const sparsityScore = round(medianLeg / numStops);
-  const densityScore = round(numStops / days);
   const furthestStopDistance = round(
-    metersToMiles(getFurthestStopDistance(trip.legs))
+    metersToMiles(getFurthestStopDistance(tripLegs))
   );
+
+  // individual coordinate-based ones
+  const coords: LatLon[] = payload.overpassResponse.elements.map((el) => ({
+    lat: el.lat,
+    lon: el.lon,
+  }));
+  const northernMostLat = coords
+    .map((co) => co.lat)
+    .reduce((a, b) => Math.max(a, b));
+  const southernMostLat = coords
+    .map((co) => co.lat)
+    .reduce((a, b) => Math.min(a, b));
+
   return {
     days,
     numTrips,
@@ -175,16 +197,23 @@ const generateSummary = (payload: Payload): Summary => {
     sparsityScore,
     densityScore,
     furthestStopDistance,
+    northernMostLat,
+    southernMostLat,
   };
 };
 
 const getTopN = (
   payloads: Array<ShortPayload>,
   key: keyof Summary,
-  n: number
+  n: number,
+  reverse = false
 ): Record<string, number> => {
   const topN = payloads
-    .sort((a, b) => b.summary[key] - a.summary[key])
+    .sort((a, b) =>
+      reverse
+        ? a.summary[key] - b.summary[key]
+        : b.summary[key] - a.summary[key]
+    )
     .slice(0, n)
     .map((x) => [x.slug, x.summary[key]]);
   return Object.fromEntries(topN);
@@ -205,6 +234,8 @@ const getTopNLists = (payloads: Array<ShortPayload>): SummaryTopNLists => {
     sparsityScore: getTopN(payloads, "sparsityScore", n),
     densityScore: getTopN(payloads, "densityScore", n),
     furthestStopDistance: getTopN(payloads, "furthestStopDistance", n),
+    northernMostLat: getTopN(payloads, "northernMostLat", n),
+    southernMostLat: getTopN(payloads, "southernMostLat", n, true),
   };
 };
 
