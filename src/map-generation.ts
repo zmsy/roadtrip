@@ -15,10 +15,12 @@ const MAP_ZOOM_RANGE: StaticMaps.StaticMapsOptions["zoomRange"] = {
 };
 
 /** Return the coordinates of the route in [long, lat] format. */
-const getCoords = (osrmRoute: OSRMRoute): [number, number][] => {
-  const geometry = decode(osrmRoute.trips[0].geometry, 6);
-  // reverse lat/long
-  return geometry.map(([x, y]) => [y, x]);
+const getTripCoords = (osrmRoute: OSRMRoute): [number, number][][] => {
+  return osrmRoute.trips.map((trip) => {
+    const geometry = decode(trip.geometry, 6);
+    // reverse lat/long
+    return geometry.map(([x, y]) => [y, x]);
+  });
 };
 
 /**
@@ -45,11 +47,13 @@ export const generateMap = async (
     });
 
     // add the polyline showing the full route
-    const coords = getCoords(osrmResponse);
-    map.addLine({
-      coords,
-      color: "#3d6b7d",
-      width: 3,
+    const trips = getTripCoords(osrmResponse);
+    trips.forEach((coords) => {
+      map.addLine({
+        coords,
+        color: "#3d6b7d",
+        width: 3,
+      });
     });
 
     for (const store of overpassResponse.elements) {

@@ -116,6 +116,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 2316,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7160898"`,
@@ -438,6 +439,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "9244",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q5317253"`,
@@ -1096,6 +1098,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "2,774 1,062 (Carl's Jr.) 1,712 (Hardee's)",
     areasServed: "Nationwide",
     notes: "Carl's Jr. in the West, Hardee's in the East",
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q3419341"`,
@@ -1275,6 +1278,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "13520",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q6908759"`,

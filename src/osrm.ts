@@ -1,9 +1,12 @@
 import { inspect } from "util";
 
-import { OverpassNode, OverpassResponse } from "./overpass";
+import { point, clustersKmeans } from "@turf/turf";
+
+import { LatLon, OverpassNode, OverpassResponse } from "./overpass";
 
 // const OSRM_API_URL = `http://router.project-osrm.org`;
 const OSRM_API_URL = `https://routing.openstreetmap.de/routed-car`;
+const OSRM_MAX_NODES = 100;
 
 /**
  * Generated these types from the OSRM response types:
@@ -109,29 +112,96 @@ const getOverpassSearchParams = (): string => {
  * Using the coordinates from an Overpass response, generate a curl call for
  * OSRM to get the optimal route.
  */
-export const formatOverpassNodesasURL = (elements?: OverpassNode[]): string => {
+export const formatOverpassNodesasURL = (elements?: LatLon[]): string => {
   const latLongPairs = (elements ?? []).map((el) => `${el.lon},${el.lat}`);
   const coordinates = latLongPairs.join(";");
   const params = getOverpassSearchParams();
   return `${OSRM_API_URL}/trip/v1/driving/${coordinates}?${params}`;
 };
 
-export const getOSRMRoute = async (
-  response: OverpassResponse
-): Promise<OSRMRoute | undefined> => {
-  const url = formatOverpassNodesasURL(response?.elements);
-  try {
-    const result = await fetch(url);
-    const data = await result.json();
-    return data as OSRMRoute;
-  } catch (err) {
-    console.error(
-      inspect({
-        err,
-        url,
-      })
-    );
+/**
+ * If the trip is
+ */
+const splitTrip = (elements?: OverpassNode[]): LatLon[][] => {
+  if (!elements?.length) {
+    throw new Error("Can't split an empty list!");
+  }
+  // if it's less than 100, just return it as a single list.
+  if (elements.length < OSRM_MAX_NODES) {
+    return [elements.map((el) => ({ lat: el.lat, lon: el.lon }))];
   }
 
-  return undefined;
+  // recursively divide the lists until they're all under 100;
+  const iteration = 0;
+  const buckets: LatLon[][] = [elements];
+  while (buckets.some((x) => x.length > 100)) {
+    // find the first element that's not
+    const tooLongIdx = buckets.findIndex((x) => x.length > 100)!;
+    const tooLong = buckets[tooLongIdx];
+    buckets.splice(tooLongIdx, 1); // delete the original
+
+    const clustered = clustersKmeans(
+      {
+        type: "FeatureCollection",
+        features: tooLong.map((stop) => point([stop.lon, stop.lat])),
+      },
+      {
+        numberOfClusters:
+          iteration === 0 ? Math.ceil(tooLong.length / OSRM_MAX_NODES) + 1 : 2,
+      }
+    );
+    const newClusters = clustered.features.reduce((acc, feat) => {
+      const cluster = feat.properties.cluster ?? 0;
+      const [lon, lat] = feat.geometry.coordinates;
+      acc[cluster] ??= [];
+      acc[cluster].push({ lon, lat });
+      return acc;
+    }, [] as LatLon[][]);
+    newClusters.forEach((cluster) => buckets.push(cluster));
+  }
+
+  return buckets;
+};
+
+/**
+ * Call OSRM and get the response for a given route.
+ */
+export const getOSRMRoute = async (
+  response: OverpassResponse
+): Promise<OSRMRoute | OSRMInvalidRoute | undefined> => {
+  if ((response?.elements.length || 0) > 100) {
+    splitTrip(response.elements);
+  }
+  const trips = splitTrip(response?.elements);
+  // create output that looks like an OSRM response.
+  const output: OSRMRoute & { invalidRoutes: any[] } = {
+    code: "Ok",
+    trips: [],
+    waypoints: [],
+    invalidRoutes: [],
+  };
+  for (const trip of trips) {
+    const url = formatOverpassNodesasURL(trip);
+    try {
+      const result = await fetch(url);
+      const data: OSRMRoute | OSRMInvalidRoute = await result.json();
+      if (!isOSRMRoute(data)) {
+        // this means it errored out somewhere along the way. this should just
+        // be returned as an error.
+        output.invalidRoutes.push(data);
+      } else {
+        output.trips.push(data.trips[0]);
+      }
+    } catch (err) {
+      console.error(
+        inspect({
+          err,
+          url,
+        })
+      );
+      return undefined;
+    }
+  }
+
+  return output;
 };
