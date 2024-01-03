@@ -113,11 +113,19 @@ export const clearInvalidEntries = async () => {
  * Remove the cached information for a specific slug so it can be reprocessed in
  * its entirety.
  */
-export const resetSlug = async (slug: string): Promise<void> => {
-  const subfolders: Subfolder[] = ["osrm", "overpass"];
-  for (const subfolder of subfolders) {
+export const resetSlug = async (
+  slug: string,
+  level: 0 | 1 | 2 = 0 // pipeline is linear, reset up to this level
+): Promise<void> => {
+  const invalidationLevels: [Subfolder, string][] = [
+    ["overpass", "json"],
+    ["osrm", "json"],
+    ["images", "png"],
+  ];
+  for (let i = level; i <= 2; i++) {
+    const [subfolder, ext] = invalidationLevels[i];
     try {
-      await fs.unlink(getCacheFilePath(slug, subfolder));
+      await fs.unlink(getCacheFilePath(slug, subfolder, ext));
     } catch (err) {
       console.error(err);
     }
