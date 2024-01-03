@@ -3,6 +3,7 @@ import { slugify } from "./src/util";
 import {
   clearInvalidEntries,
   getCachedJson,
+  hasCacheFile,
   resetSlug,
   writeCacheJson,
 } from "./src/cache";
@@ -70,6 +71,12 @@ const generateAllMaps = async () => {
     const { name } = restaurant;
     const slug = slugify(name);
 
+    // if there's already an image in the cache, skip
+    const hasCache = await hasCacheFile(slug, "images", "png");
+    if (hasCache) {
+      continue;
+    }
+
     // if there's either 1. already a result or 2. no overpass result, just skip
     // this round.
     const osrmRoute = await getCachedJson<OSRMResponse>(slug, "osrm");
@@ -86,20 +93,16 @@ const generateAllMaps = async () => {
 };
 
 (async () => {
-  // const toReset = [
-  //   "starbucks",
-  //   "red-lobster",
-  //   "sonic-drive-in",
-  //   "brueggers-bagels",
-  //   "raising-canes-chicken-fingers",
-  //   "yogurtland",
-  //   "five-guys",
-  //   "marcos-pizza",
-  //   "sbarro",
-  //   "arbys",
-  //   "baskin-robbins",
-  // ];
-  // toReset.forEach((slug) => resetSlug(slug));
+  const toReset = [
+    // needs work
+    // "wingstop",
+    // "which-wich",
+    // "wafflehouse",
+
+    // just for testing
+    "taco-time",
+  ];
+  toReset.forEach((slug) => resetSlug(slug));
   // await getAllOverpassNodes();
   // await clearInvalidEntries();
   // await getOSRMRoutes();

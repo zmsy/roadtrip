@@ -11,8 +11,11 @@ export const getCacheDir = () => path.join(process.cwd(), ".roadtrip_cache");
 /**
  * Get the location of a specific file in the cache.
  */
-export const getCacheFilePath = (slug: string, subfolder: Subfolder) =>
-  path.join(getCacheDir(), subfolder, `${slug}.json`);
+export const getCacheFilePath = (
+  slug: string,
+  subfolder: Subfolder,
+  ext = "json"
+) => path.join(getCacheDir(), subfolder, `${slug}.${ext}`);
 
 /**
  * Check to see if there's a cached overpass response and return it.
@@ -38,6 +41,25 @@ export const getCachedJson = async <T>(
   }
 
   return undefined;
+};
+
+/**
+ * Just check to see if there's a file in the cache at that specific path, this
+ * is for things like images or summary files that aren't individually able to
+ * be invalidated.
+ */
+export const hasCacheFile = async (
+  slug: string,
+  subfolder: Subfolder,
+  ext: string
+): Promise<boolean> => {
+  const fileName = getCacheFilePath(slug, subfolder, ext);
+  try {
+    await fs.access(fileName);
+    return true;
+  } catch (err) {}
+
+  return false;
 };
 
 /**
@@ -87,6 +109,10 @@ export const clearInvalidEntries = async () => {
   await removeInvalidEntries(path.join(getCacheDir(), "overpass"));
 };
 
+/**
+ * Remove the cached information for a specific slug so it can be reprocessed in
+ * its entirety.
+ */
 export const resetSlug = async (slug: string): Promise<void> => {
   const subfolders: Subfolder[] = ["osrm", "overpass"];
   for (const subfolder of subfolders) {
