@@ -7,15 +7,18 @@ import { inspect } from "util";
  */
 const OVERPASS_URL = `https://overpass-api.de/api/interpreter`;
 
+export type LatLon = {
+  lat: number;
+  lon: number;
+};
+
 /**
  * This is the individual node you'd find in Overpass. The list of tags is where
  * most of the actual information is kept.
  */
-export type OverpassNode = {
+export type OverpassNode = LatLon & {
   type: "node";
   id: number;
-  lat: number;
-  lon: number;
   tags: {
     name: string;
     amenity: "restaurant";
