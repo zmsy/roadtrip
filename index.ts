@@ -93,19 +93,43 @@ const generateAllMaps = async () => {
 };
 
 (async () => {
-  const toReset = [
-    // needs work
-    // "wingstop",
-    // "which-wich",
-    // "wafflehouse",
-
-    // just for testing
-    "taco-time",
-  ];
-  toReset.forEach((slug) => resetSlug(slug));
+  // const toReset: [string, number][] = [
+  //   ["wingstop", 0],
+  //   ["which-wich", 0],
+  //   ["wafflehouse", 0],
+  //   ["the-cheesecake-factory", 0],
+  //   ["taco-johns", 0],
+  //   ["taco-bell", 0],
+  //   ["starbucks", 0],
+  //   ["smoothie-king", 0],
+  //   ["shake-shack", 0],
+  //   ["schlotzkys", 0],
+  //   ["rubios-coastal-grill", 0],
+  //   ["round-table-pizza", 0],
+  //   ["red-lobster", 0],
+  //   ["quiznos", 0],
+  //   ["potbelly-sandwich-shop", 0],
+  //   ["popeyes", 0],
+  //   ["pizza-hut", 0],
+  //   ["olive-garden", 0],
+  //   ["ben--jerrys", 0],
+  //   ["menchies-frozen-yogurt", 0],
+  //   ["mcalisters-deli", 1],
+  //   ["kung-fu-tea", 1],
+  //   ["jets-pizza", 1],
+  //   ["krispy-kreme", 0],
+  //   ["jersey-mikes-subs", 0],
+  //   ["jasons-deli", 1],
+  //   ["insomnia-cookies", 1],
+  //   ["hungry-howies-pizza", 1],
+  //   ["honeybaked-ham-co", 1],
+  //   ["jamba-juice", 0],
+  //   ["jack-in-the-box", 0],
+  // ];
+  // toReset.forEach(([slug, level]) => resetSlug(slug, level));
   // await getAllOverpassNodes();
   // await clearInvalidEntries();
   // await getOSRMRoutes();
-  await generateAllMaps();
+  // await generateAllMaps();
   await generateSlides();
 })();

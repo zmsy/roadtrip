@@ -35,7 +35,7 @@ export const isOSRMRoute = (
   return (response as OSRMRoute)?.["code"] === "Ok";
 };
 
-type Trip = {
+export type Trip = {
   geometry: string;
   legs: Leg[];
   weight_name: string;

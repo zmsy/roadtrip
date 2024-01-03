@@ -7,7 +7,8 @@ import { OverpassResponse } from "./overpass";
 import { getCacheDir } from "./cache";
 
 const MARKER_IMAGE_PATH = path.join(process.cwd(), "static", "marker.png");
-const MAP_PADDING = 3;
+const MARKER_IMAGE_HEIGHT = 24;
+const MARKER_IMAGE_DRAW_HEIGHT = 12;
 const MAP_TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 const MAP_ZOOM_RANGE: StaticMaps.StaticMapsOptions["zoomRange"] = {
   max: 17,
@@ -40,8 +41,6 @@ export const generateMap = async (
     const map = new StaticMaps({
       width: 1200,
       height: 800,
-      paddingX: MAP_PADDING,
-      paddingY: MAP_PADDING,
       tileUrl: MAP_TILE_URL,
       zoomRange: MAP_ZOOM_RANGE,
     });
@@ -51,8 +50,8 @@ export const generateMap = async (
     trips.forEach((coords) => {
       map.addLine({
         coords,
-        color: "#3d6b7d",
-        width: 3,
+        color: "#cc4806",
+        width: 2,
       });
     });
 
@@ -60,8 +59,10 @@ export const generateMap = async (
       map.addMarker({
         coord: [store.lon, store.lat],
         img: MARKER_IMAGE_PATH,
-        height: 24,
-        width: 24,
+        height: MARKER_IMAGE_HEIGHT,
+        drawHeight: MARKER_IMAGE_DRAW_HEIGHT,
+        width: MARKER_IMAGE_HEIGHT,
+        drawWidth: MARKER_IMAGE_DRAW_HEIGHT,
       });
     }
 

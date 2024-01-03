@@ -1,5 +1,5 @@
 import { getCacheFilePath, getCachedJson, writeCacheJson } from "./cache";
-import { Leg, OSRMResponse, OSRMRoute, isOSRMRoute } from "./osrm";
+import { Leg, OSRMResponse, OSRMRoute, isOSRMRoute, Trip } from "./osrm";
 import { OverpassResponse } from "./overpass";
 import { Restaurant, restaurantsList } from "./restaurants";
 import { slugify } from "./util";
@@ -19,6 +19,9 @@ type ShortPayload = Pick<Payload, "slug" | "restaurant" | "image"> & {
 };
 
 type Summary = {
+  /** How many trips would this take? */
+  numTrips: number;
+  /** How many miles is the trip in total? */
   totalMiles: number;
   /** How many stops are there on the journey? */
   numStops: number;
@@ -100,10 +103,47 @@ const getFurthestStopDistance = (legs: Leg[]): number => {
   return max;
 };
 
+/**
+ * Approach 1: Map/Reduce - Apply a function to each dataset and apply another
+ * to sum them up.
+ */
+const mapReduce = (
+  route: OSRMRoute,
+  mapFunc: (trip: Trip) => number,
+  reduceFunc: (outputs: number[]) => number
+): number => {
+  const mapFuncOutputs = route.trips.map(mapFunc);
+  const singleValue = reduceFunc(mapFuncOutputs);
+  return singleValue;
+};
+
+/**
+ * Approach 2: Summarize - Merge together all of the trip legs and then apply the
+ * summarize function to each one.
+ */
+const flatMapLegs = (
+  route: OSRMRoute,
+  mapFunc: (legs: Leg[]) => number,
+  reduceFunc: (outputs: number[]) => number
+): number => {
+  const mapFuncOutputs = route.trips.map((trip) => trip.legs).flatMap(mapFunc);
+  const singleValue = reduceFunc(mapFuncOutputs);
+  return singleValue;
+};
+
+const sum = (nums: number[]) => round(nums.reduce((a, b) => a + b));
+
 const generateSummary = (payload: Payload): Summary => {
+  const { osrmRoute } = payload;
   const [trip] = payload.osrmRoute.trips;
-  const totalMiles = round(metersToMiles(trip.distance));
-  const numStops = trip.legs.length - 1;
+  // const totalMiles = round(metersToMiles(trip.distance));
+  const numTrips = mapReduce(osrmRoute, (trip) => 1, sum);
+  const totalMiles = mapReduce(
+    osrmRoute,
+    (trip) => metersToMiles(trip.distance),
+    sum
+  );
+  const numStops = mapReduce(osrmRoute, (trip) => trip.legs.length - 1, sum);
   const drivingHours = round(trip.duration / (60 * 60)); // time in Days
   const stoppingHours = numStops;
   const days = round((drivingHours + stoppingHours) / DRIVING_HOURS_PER_DAY);
@@ -119,9 +159,12 @@ const generateSummary = (payload: Payload): Summary => {
   );
   const sparsityScore = round(medianLeg / numStops);
   const densityScore = round(numStops / days);
-  const furthestStopDistance = round(getFurthestStopDistance(trip.legs));
+  const furthestStopDistance = round(
+    metersToMiles(getFurthestStopDistance(trip.legs))
+  );
   return {
     days,
+    numTrips,
     drivingHours,
     numPeeBreaks,
     numStops,
@@ -150,6 +193,7 @@ const getTopN = (
 const getTopNLists = (payloads: Array<ShortPayload>): SummaryTopNLists => {
   const n = 5;
   return {
+    numTrips: getTopN(payloads, "numTrips", n),
     days: getTopN(payloads, "days", n),
     drivingHours: getTopN(payloads, "drivingHours", n),
     numPeeBreaks: getTopN(payloads, "numPeeBreaks", n),
