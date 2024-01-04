@@ -183,6 +183,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "1133",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4978656"`,
@@ -293,6 +294,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "210",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1192805"`,
@@ -473,6 +475,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "757",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q6305173"`,
@@ -542,7 +545,7 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata"="Q175106"`,
+    filter: `"brand:wikidata"="Q37158"`,
     name: "Starbucks",
     originalLocation: "Seattle, Washington",
     founded: 1971,
@@ -551,6 +554,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "15450",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q175106"`,
@@ -751,6 +755,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 2754,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7285144"`,
@@ -762,6 +767,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 567,
     areasServed: "South and Midwest",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q8025339"`,
@@ -773,6 +779,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 1534,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q8067525"`,
@@ -806,6 +813,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 2317,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q816412"`,
@@ -817,6 +825,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 221,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4958263"`,
@@ -1031,6 +1040,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "326",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q277641"`,
@@ -1166,6 +1176,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "1453",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q5496837"`,
@@ -1243,6 +1254,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "2197",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q6110826"`,
@@ -1334,6 +1346,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "3545",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7605233"`,
@@ -1588,6 +1601,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "7002",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7673958"`,
@@ -1897,6 +1911,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "1002",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q19903469"`,
@@ -1976,6 +1991,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "6548",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4118850"`,
@@ -2009,6 +2025,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "416",
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q2589409"`,
@@ -2020,6 +2037,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "296",
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q17509305"`,
@@ -2086,6 +2104,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "3409",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4926479"`,
@@ -2174,6 +2193,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "1164",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q5893363"`,
@@ -2207,6 +2227,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "2100",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1689380"`,
@@ -2328,6 +2349,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "176",
     areasServed: null,
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q108795782"`,
@@ -2449,6 +2471,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 1578,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4835755"`,
@@ -2505,6 +2528,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 207,
     areasServed: "Nationwide",
     notes: "14 locations are branded as Grand Lux Cafe.",
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q17511079"`,
@@ -2778,17 +2802,6 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata"="Q22022696"`,
-    name: "HopCat",
-    originalLocation: "Grand Rapids, Michigan",
-    founded: 2008,
-    headquarters: "Grand Rapids, Michigan",
-    parentCompany: null,
-    numUSLocations: 17,
-    areasServed: "Michigan",
-    notes: null,
-  },
-  {
     filter: `"brand:wikidata"="Q6858987"`,
     name: "Miller's Ale House",
     originalLocation: "Jupiter, Florida",
@@ -3023,6 +3036,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 876,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q7362714"`,
@@ -3200,6 +3214,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 670,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q4492609"`,
@@ -3448,6 +3463,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: 477,
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand"="Dave & Buster's"`,
