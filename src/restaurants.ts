@@ -1735,6 +1735,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "6560",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q1240741"`,
@@ -2118,17 +2119,6 @@ export const restaurantsList: Array<Restaurant> = [
     notes: null,
   },
   {
-    filter: `"brand:wikidata"="Q1066777"`,
-    name: "Charleys Philly Steaks",
-    originalLocation: "Columbus, Ohio",
-    founded: 1986.0,
-    headquarters: "Columbus, Ohio",
-    parentCompany: null,
-    numUSLocations: "589",
-    areasServed: null,
-    notes: null,
-  },
-  {
     filter: `"brand:wikidata"="Q5171598"`,
     name: "Corner Bakery Cafe",
     originalLocation: "Chicago, Illinois",
@@ -2394,6 +2384,7 @@ export const restaurantsList: Array<Restaurant> = [
     numUSLocations: "21147",
     areasServed: "Nationwide",
     notes: null,
+    hasIslands: true,
   },
   {
     filter: `"brand:wikidata"="Q3530375"`,

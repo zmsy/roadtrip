@@ -199,6 +199,10 @@ export const getOSRMRoute = async (
           url,
         })
       );
+      output.invalidRoutes.push({
+        code: "Error",
+        message: `${JSON.stringify(err)}`,
+      });
       return undefined;
     }
   }

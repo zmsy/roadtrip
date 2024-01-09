@@ -4,7 +4,7 @@ import {
   clearInvalidEntries,
   getCachedJson,
   hasCacheFile,
-  resetSlug,
+  // resetSlug,
   writeCacheJson,
 } from "./src/cache";
 import { OverpassResponse, getOverpassNodes } from "./src/overpass";
@@ -88,48 +88,27 @@ const generateAllMaps = async () => {
       continue;
     }
 
-    await generateMap(slug, osrmRoute, overpassResponse);
+    await generateMap(slug, osrmRoute, overpassResponse, [-105, 45]);
   }
 };
 
 (async () => {
-  // const toReset: [string, number][] = [
-  //   ["wingstop", 0],
-  //   ["which-wich", 0],
-  //   ["wafflehouse", 0],
-  //   ["the-cheesecake-factory", 0],
-  //   ["taco-johns", 0],
-  //   ["taco-bell", 0],
-  //   ["starbucks", 0],
-  //   ["smoothie-king", 0],
-  //   ["shake-shack", 0],
-  //   ["schlotzkys", 0],
-  //   ["rubios-coastal-grill", 0],
-  //   ["round-table-pizza", 0],
-  //   ["red-lobster", 0],
-  //   ["quiznos", 0],
-  //   ["potbelly-sandwich-shop", 0],
-  //   ["popeyes", 0],
-  //   ["pizza-hut", 0],
-  //   ["olive-garden", 0],
-  //   ["ben--jerrys", 0],
-  //   ["menchies-frozen-yogurt", 0],
-  //   ["mcalisters-deli", 1],
-  //   ["kung-fu-tea", 1],
-  //   ["jets-pizza", 1],
-  //   ["krispy-kreme", 0],
-  //   ["jersey-mikes-subs", 0],
-  //   ["jasons-deli", 1],
-  //   ["insomnia-cookies", 1],
-  //   ["hungry-howies-pizza", 1],
-  //   ["honeybaked-ham-co", 1],
+  // const toReset: [string, Parameters<typeof resetSlug>[1]][] = [
+  //   ["burger-king", 0],
+  //   ["dunkin-donuts", 0],
+  //   ["dominos", 0],
   //   ["jamba-juice", 0],
-  //   ["jack-in-the-box", 0],
+  //   ["kfc", 0],
+  //   ["mcdonalds", 0],
+  //   ["churchs-chicken", 0],
+  //   ["starbucks", 0],
+  //   ["subway", 0],
+  //   ["taco-bell", 0],
   // ];
   // toReset.forEach(([slug, level]) => resetSlug(slug, level));
   // await getAllOverpassNodes();
   // await clearInvalidEntries();
-  // await getOSRMRoutes();
-  // await generateAllMaps();
+  await getOSRMRoutes();
+  await generateAllMaps();
   await generateSlides();
 })();
